@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if page is defined %}
+        <title>{pagetitle}</title>
+            <meta name="description" content="{pagemetadescription}">
+            {% endif %}
+        <meta name="robots" content="noindex nofollow" />
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% block stylesheets %}{% endblock %}
+        <style type="text/css">
+            @font-face {
+                    font-family: 'bebaskai';
+                    src: url('fonts/bebaskai.eot'); /* IE9 Compat Modes */
+                    src: url('fonts/bebaskai.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                         url('fonts/bebaskai.woff') format('woff'), /* Modern Browsers */
+                         url('fonts/bebaskai.ttf')  format('truetype'), /* Safari, Android, iOS */
+                         url('fonts/bebaskai.svg#svgFontName') format('svg'); /* Legacy iOS */
+                  }
+            @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+            body{
+                font-size: 16px;
+                line-height: 1.5em;
+                
+            }
+
+            h1,
+            h2,
+            h3,
+            h4{
+                font-family: bebaskai, Arial;
+            }
+
+            p{
+                font-family: Open Sans, Arial;
+                font-size: 1em;
+            }
+
+        </style>
+            {{ outputHeadDeclarations() }}
+    </head>
+    <body>
+        {{ outputScripts('bodyOpen') }}
+
+        <div class="row" data-section-wrapper="1">
+            <div class="col s12 center-align" data-slot-container="1">
+                <img src="https://hello.unepetitemousse.fr/asset/1:header-unepetitemousse" data-slot="image" width="100%">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        
+        {{ outputScripts('bodyClose') }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    </body>
+</html>
