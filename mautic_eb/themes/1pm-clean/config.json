@@ -1,0 +1,10 @@
+{
+  "name": "Une Petite Mousse - Clean",
+  "author": "Jonathan Bonzy",
+  "authorUrl": "https://unepetitemousse.fr",
+  "features": [
+    "page",
+    "email",
+    "form"
+  ]
+}

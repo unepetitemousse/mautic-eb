@@ -1,0 +1,10 @@
+{
+  "name": "Newsletter - Red CTA",
+  "author": "Nicolas Deforge",
+  "authorUrl": "https://nicodeforge.github.io",
+  "features": [
+    "page",
+    "email",
+    "form"
+  ]
+}
