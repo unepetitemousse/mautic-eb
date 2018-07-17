@@ -1,8 +1,17 @@
 <?php
+
+/**
+ * UPM Customized parameter file.
+ *
+ * For more explanation on the purpose of this file:
+ * @see https://github.com/TheDMSGroup/mautic-eb/issues/34
+ */
+
 /**
  * Global default environment variable overrides for Mautic EB
  * To override for your instance use parameters_local.php
  */
+/** @noinspection PhpDuplicateArrayKeysInspection -- Yes, we insert same key twice but that's to ease merge and rebases */
 $parameters = [
     'db_driver'         => 'pdo_mysql',
     'db_table_prefix'   => null,
@@ -25,8 +34,39 @@ $parameters = [
     'mailer_spool_path' => '%kernel.root_dir%/spool',
     'secret_key'        => getenv('SECRET_KEY') ?: '3e29c87bddfbfc8e59d004581da4fa9f5c9fe0a9f1f90a244a38e2e5600c2800',
     'site_url'          => getenv('APP_URL') ?: 'http://mautic.loc',
-    // Always use the core system tmp path.
     'tmp_path'          => '/tmp',
+    // Support the cache path for "ondeck" during deployment, switching to "current" when there.
+    'cache_path'        => str_replace('/mautic_eb/app/config', '/mautic/app/cache', __DIR__),
+
+    // Please insert UPM related code below to ease merge and rebases
+
+    // SES
+    'mailer_from_name'  => getenv('MAILER_FROM_NAME') ?: $parameters['mailer_from_name'] ?? 'Web Developer',
+    'mailer_from_email' => getenv('MAILER_FROM_EMAIL') ?: $parameters['mailer_from_email'] ?? 'web@developer.com',
+    'mailer_amazon_region' => getenv('MAILER_AMAZON_REGION') ?: $parameters['mailer_amazon_region'] ?? '',
+    'mailer_transport'  => 'mautic.transport.amazon',
+    'mailer_host'       => null,
+    'mailer_port'       => null,
+    'mailer_user'       => getenv('MAILER_USER') ?: $parameters['mailer_user'] ?? '',
+    'mailer_password'   => getenv('MAILER_PASSWORD') ?: $parameters['mailer_password'] ?? '',
+    'mailer_encryption' => null,
+    'mailer_auth_mode'  => null,
+    'mailer_spool_type' => 'file',
+    'mailer_spool_path' => '%kernel.root_dir%/spool',
+
+    // Locale
+    'locale' => 'fr',
+    'default_timezone' => 'Europe/Paris',
+    'date_format_full' => 'F j, Y g:i a T',
+    'date_format_short' => 'D, M d',
+    'date_format_dateonly' => 'F j, Y',
+    'date_format_timeonly' => 'g:i a',
+
+    // API
+    'api_enabled' => 1,
+    'api_enable_basic_auth' => false,
+    'api_oauth2_access_token_lifetime' => 60,
+    'api_oauth2_refresh_token_lifetime' => 14,
 ];
 
 /**
@@ -153,10 +193,14 @@ if (!function_exists('mauticEBMultisite')) {
                 ) {
                     $_SERVER['HTTPS'] = 'on';
                 }
-                $protocol = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http';
-                $parameters['site_url'] = $protocol . '://' . $host;
+                $protocol               = (!empty($_SERVER['HTTPS']) && strtolower(
+                        $_SERVER['HTTPS']
+                    ) != 'off') ? 'https' : 'http';
+                $parameters['site_url'] = $protocol.'://'.$host;
             }
         }
     }
 }
+
 mauticEBMultisite($parameters);
+
