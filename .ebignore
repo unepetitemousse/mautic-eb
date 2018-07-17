@@ -16,7 +16,7 @@
 /mautic/bower_components
 /mautic/node_modules
 /mautic/npm-debug.log
-# /vendor
+/vendor
 # /bin
 /selenium
 # /mautic_custom/*
