@@ -27,8 +27,10 @@ mysql -u${DB_USER} -p${DB_PASSWD} -h${DB_HOST} -P${DB_PORT} ${DB_NAME} <<EOF
 
 -- Variable
 SET @email_id=${email_id};
-SET @segment_name=CONCAT("Relance Email #", @email_id, ' ', DATE_FORMAT(NOW(), '%Y/%m/%d %H:%i:%s (UTC)'));
+SELECT @email_name := name, @email_subject := subject FROM emails where id = @email_id;
+SET @segment_name=CONCAT("[RELANCE] ", @email_name);
 SET @segment_alias=CONCAT("relance-email-", @email_id, '-', DATE_FORMAT(NOW(), '%Y%m%d%H%i%s'));
+SET @segment_description=CONCAT("Généré le ", DATE_FORMAT(NOW(), '%Y/%m/%d %H:%i:%s'), " sur email <b>#", @email_id, "</b>, « <i>", @email_subject, "</i> »");
 
 -- Create segment, if missing, ignore duplicated ID
 insert into lead_lists
@@ -41,7 +43,7 @@ select
   CONCAT(u.first_name, ' ', u.last_name), NOW(), u.id,
   CONCAT(u.first_name, ' ', u.last_name), NULL, NULL, NULL,
   @segment_name,
-  CONCAT("Contacts qui n'ont pas ouvert l'email #", e.id),
+  @segment_description,
   @segment_alias, "a:0:{}", 1
 from emails e
 inner join users u on u.id = 1 and e.id = @email_id;
