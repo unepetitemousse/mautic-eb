@@ -28,7 +28,7 @@ while read email
 done < "$1" | mysql -u${DB_USER} -p${DB_PASSWD} -h${DB_HOST} -P${DB_PORT} ${DB_NAME};
 
 cat <<-EOF | mysql -u${DB_USER} -p${DB_PASSWD} -h${DB_HOST} -P${DB_PORT} ${DB_NAME}
-update temporary_dnc set email = TRIM(email);
+update temporary_dnc set email = TRIM(REPLACE(REPLACE(email, CHAR(10), ''), CHAR(13), ''));
 update temporary_dnc t inner join leads l on t.email = l.email set t.lead_id = l.id;
 EOF
 
