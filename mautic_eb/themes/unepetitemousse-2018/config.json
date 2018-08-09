@@ -1,0 +1,10 @@
+{
+  "name": "Une Petite Mousse - 2018",
+  "author": "Nicolas Deforge",
+  "authorUrl": "https://unepetitemousse.fr",
+  "features": [
+    "page",
+    "email",
+    "form"
+  ]
+}

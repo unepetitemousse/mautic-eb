@@ -1,0 +1,22 @@
+{% extends ":"~template~":base.html.twig" %}
+
+{% block content %}
+    {% if message is defined %}
+        
+        <div class="container" data-section-wrapper="1">
+            <div class="row" data-slot-container="1">
+                <div class="col s12" data-slot="text">
+                    <h2>{{ message|raw }}</h2>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div>
+        {% if header is defined %}
+        <h4>{{ header }}</h4>
+        {% endif %}
+        {{ content|raw }}
+    </div>
+{% endblock %}
+
