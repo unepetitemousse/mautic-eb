@@ -4,6 +4,7 @@
   "authorUrl": "https://unepetitemousse.fr",
   "features": [
     "email",
-    "page"
+    "page",
+    "form"
   ]
 }
