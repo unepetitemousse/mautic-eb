@@ -8,165 +8,16 @@
         <meta name="robots" content="noindex nofollow" />
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <!--Import materialize.css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css" />
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {% block stylesheets %}{% endblock %}
-        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-    <style>
-     
-      body{
-        font-family: 'Open Sans',sans-serif;
-        font-size: 16px;
-      }
-      h1,h2,h3,h4,h5{
-        font-family: 'Oswald',sans-serif;
-      }
-
-      p{
-        font-size: 1em;
-      }
-
-      blockquote{
-        font-size: 0.9em;
-      }
-
-      strong{
-        font-style: normal;
-        color: #000;
-        font-weight: 900 !important;
-      }
-
-      /*.carousel{
-        margin: -100px auto;
-      }*/
         
-      
-
-      .top-image{
-        height: 100%;
-      }
-
-      .indicators{
-        display: none;
-      }
-
-      .frontline{
-        font-size: 5em;
-      }
-      .baseline{
-        font-size: 3em;
-      }
-      .cta{
-        font-family: 'Oswald',sans-serif;
-        background-color: #333;
-        color: white;
-        font-size: 2em;
-      }
-
-      .cta:hover,
-      .cta:active,
-      .cta:visited,
-      .cta:focus{
-        background-color: #b39664;
-      }
-
-      #cta-go{
-        margin-top: -5em;
-        z-index: 1000;
-      }
-      .value-prop{
-        font-size: 1.5em;
-      }
-
-      .upsize{
-        font-size: 1.3em;
-      }
-
-      .upm-color{
-        background-color: #444;
-      }
-      .upm-text,
-      .collection a.collection-item{
-        color: #444;
-      }
-
-      .parallax-container{
-        width : 100%;
-      }
-
-      .titre{
-        color: white;
-        background-color: rgb(0,0,0);
-        padding: 5px 10px;
-      }
-
-      /*.slider .slides li .caption{
-        background-color: rgba(0,0,0,0.9);
-        padding: 5px 10px;
-        position: absolute;
-        left: 0%;
-        width: 40%;
-      }*/
-
-      .collapsible:hover,
-      .collapsible ul:hover,
-      .collapsible ul li:hover,
-      .collapsible ul li div:hover,
-      .collapsible ul li div p:hover,
-      .collapsible ul li div p span:hover
-      {
-        cursor: pointer;
-      }
-
-     
-
-      .info{
-        border-bottom: 1px dashed #039be5;
-        color: #039be5;
-      }
-      .challenge{
-        font-family: 'Oswald',sans-serif;
-        font-size: 1.3em;
-        text-align: left;
-      }
-
-      blockquote{
-        border-left: solid 3px black;
-      }
-
-      .shopify-buy__btn{
-        margin-bottom: 50px;
-        width: 100% !important;
-      }
-
-      /*Start specific style for individual CTAs in product details*/
-      .inner10{
-        padding: 10px;
-      }
-      /*End specific style for Box #2 - Selection #1*/
-
-      #brand-logo{
-        position: fixed;
-        top : 0;
-        left: 2em;
-        z-index: 9999;
-        height: 100px;
-      }
-    </style>
-            {{ outputHeadDeclarations() }}
+        {{ outputHeadDeclarations() }}
     </head>
     <body>
         {{ outputScripts('bodyOpen') }}
-        <img src="https://unepetitemousse.fr/images/unepetitemousse-logo.140.150.png" id="brand-logo" class="hide-on-small-only" />
-        <div class="container">
           {% block content %}
           {% endblock %}  
-        </div>
         {{ outputScripts('bodyClose') }}
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     </body>
 </html>
