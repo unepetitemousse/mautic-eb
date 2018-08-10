@@ -5,6 +5,7 @@
   "features": [
     "email",
     "page",
-    "form"
+    "form",
+    "message"
   ]
 }
