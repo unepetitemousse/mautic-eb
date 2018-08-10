@@ -3,6 +3,7 @@
   "author": "Nicolas Deforge",
   "authorUrl": "https://unepetitemousse.fr",
   "features": [
-    "email"
+    "email",
+    "page"
   ]
 }
