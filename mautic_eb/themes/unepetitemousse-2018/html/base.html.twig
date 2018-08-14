@@ -8,8 +8,53 @@
         <meta name="robots" content="noindex nofollow" />
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Open+Sans" rel="stylesheet" />
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style type="text/css">
+            /*Specific preference center styling*/
+            body{
+                font-family: Open Sans, sans-serif;
+            }
+
+            form{
+                width: 600px;
+                margin: auto;
+            }
+
+            .panel-heading .panel-title,
+            #global-categories > div:nth-child(1) > label{
+                font-family: Oswald, sans-serif;
+
+            }
+
+            .panel-footer{
+                max-width: 300px;
+                margin: 50px auto;
+            }
+
+            #lead_contact_frequency_rules_buttons_save{
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                background-color: #b38b45;
+                border: 0;
+                border-radius: 0;
+                box-sizing: border-box;
+                color: white;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Oswald, sans-serif;
+                font-size: 18px;
+                line-height: inherit;
+                margin-left: 0px;
+                min-width: 300px;
+                padding: 9px 15px;
+                padding-right: 15px;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        </style>
         {% block stylesheets %}{% endblock %}
         
         {{ outputHeadDeclarations() }}
