@@ -58,6 +58,7 @@ select
   s.id, e.lead_id, NOW(), 0, 1
 from lead_lists s
 inner join email_stats e on e.email_id = @email_id and e.is_read = 0
+inner join leads l on l.id = e.lead_id
 where s.id = @segment_id;
 
 EOF
